@@ -28,25 +28,25 @@ A = timetable(time,valA);
 B = timetable(time,valB);
 %--------------------------------------------------------------------------
 % Loading the simulink Model
-load_system('Sample_Model');
+load_system('and_gate_model');
 
 % Creating the test harness having source as 'From Workspace' and Sink 'Outport'
-% sltest.harness.create('Sample_Model', 'Name', 'Sample_Model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
+sltest.harness.create('and_gate_model', 'Name', 'and_gate_model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
 
 % Opening the test Harness model
-sltest.harness.open('Sample_Model','Sample_Model_Harness');
+sltest.harness.open('and_gate_model','and_gate_model_Harness');
 %--------------------------------------------------------------------------
 % test Manager
-tf = sltest.testmanager.TestFile('Sample_Model_Results.mldatx');
+tf = sltest.testmanager.TestFile('and_gate_model_Results.mldatx');
 ts = getTestSuites(tf);
 tc = getTestCases(ts);
 
 % To provide the Sample Model & Test Harness Model to the Test Manager
-setProperty(tc,'Model','Sample_Model')
-setProperty(tc, 'HarnessName', 'Sample_Model_Harness', 'HarnessOwner', 'Sample_Model');
+setProperty(tc,'Model','and_gate_model')
+setProperty(tc, 'HarnessName', 'and_gate_model_Harness', 'HarnessOwner', 'and_gate_model');
 
 % Capturing the Baseline
-baseline = captureBaselineCriteria(tc,'Sample_Model_Baseline.xlsx',true);
+baseline = captureBaselineCriteria(tc,'and_gate_model_Baseline.xlsx',true);
 sc = getSignalCriteria(baseline);
 sc(1).AbsTol = 9;
 
@@ -55,7 +55,7 @@ sltest.testmanager.view;
 result = sltest.testmanager.run(); % Executing the test manager
 
 % Provide the same filename created to store the test results
-exampleFile = 'Sample_Model_Results.mldatx';
+exampleFile = 'and_gate_model_Results.mldatx';
 sltest.testmanager.load(exampleFile);
 %-------------------------------------------------------------------------
 % Report Generation
