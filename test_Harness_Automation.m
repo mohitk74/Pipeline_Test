@@ -31,7 +31,7 @@ B = timetable(time,valB);
 load_system('and_gate_model');
 
 % Creating the test harness having source as 'From Workspace' and Sink 'Outport'
-% sltest.harness.create('and_gate_model', 'Name', 'and_gate_model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
+sltest.harness.create('and_gate_model', 'Name', 'and_gate_model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
 
 % Opening the test Harness model
 sltest.harness.open('and_gate_model','and_gate_model_Harness');
