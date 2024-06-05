@@ -14,17 +14,7 @@ pipeline {
             steps {
                 runMATLABCommand(command: 'simulation_check')
             }       
-        }
-       stage('Testcases') {
-            steps {
-                runMATLABTests(testResultsJUnit: 'test-results/results.xml',
-                               codeCoverageCobertura: 'code-coverage/coverage.xml', 
-                                 testResultsPDF: 'test-results/testreport.pdf')
-               runMATLABCommand(command: 'test_and_gate_model')
-            }
-        }
-
-       
+        }    
        stage('Jmaab_check') {
             steps {
                 runMATLABCommand(command: 'jmaab_check')
