@@ -31,10 +31,10 @@ B = timetable(time,valB);
 load_system('and_gate_model');
 
 % Creating the test harness having source as 'From Workspace' and Sink 'Outport'
-sltest.harness.create('and_gate_model', 'Name', 'and_gate_model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
+sltest.harness.create('and_gate_model', 'Name', 'and_gate_model_Harness1', 'Source', 'From Workspace', 'Sink', 'Outport');
 
 % Opening the test Harness model
-sltest.harness.open('and_gate_model','and_gate_model_Harness');
+sltest.harness.open('and_gate_model','and_gate_model_Harness1');
 %--------------------------------------------------------------------------
 % test Manager
 tf = sltest.testmanager.TestFile('and_gate_model_Results.mldatx');
@@ -43,7 +43,7 @@ tc = getTestCases(ts);
 
 % To provide the Sample Model & Test Harness Model to the Test Manager
 setProperty(tc,'Model','and_gate_model')
-setProperty(tc, 'HarnessName', 'and_gate_model_Harness', 'HarnessOwner', 'and_gate_model');
+setProperty(tc, 'HarnessName', 'and_gate_model_Harness1', 'HarnessOwner', 'and_gate_model');
 
 % Capturing the Baseline
 baseline = captureBaselineCriteria(tc,'and_gate_model_Baseline.xlsx',true);
