@@ -1,7 +1,6 @@
 clc;clear;close all;
 
 % reading excel file
-data = readtable('C:\ProgramData\Jenkins\.jenkins\workspace\Pipeline_Test\Inputs.xlsx');
 data=readtable("Inputs.xlsx");
 %--------------------------------------------------------------------------
 % reading time data 
