@@ -20,7 +20,7 @@ pipeline {
        //  }
       stage('Test Harness'){
         steps{
-          runMATLABCommand(command: 'Test_Harness_Automation')
+          runMATLABCommand(command: 'test_Harness_Automation')
         }
       }
        stage('Test Harness1'){
