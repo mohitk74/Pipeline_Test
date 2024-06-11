@@ -45,7 +45,7 @@ sc(1).AbsTol = 9;
 sltest.testmanager.view;
 result = sltest.testmanager.run();
 
-exampleFile = tf;
+exampleFile = 'Sample_Model_Results12.mldatx';
 sltest.testmanager.load(exampleFile);
 %--------------------------------------------------------------------------
 % Executing the test manager
