@@ -1,5 +1,3 @@
-clc;clear;close all;
-% reading excel file
 
 % 3 represents column three
 % -------------------------------------------------------------------------
@@ -18,8 +16,13 @@ open_system(modelName);
 sltest.harness.create(modelName, 'Name', 'Sample_Model_Harness', 'Source', 'From Workspace', 'Sink', 'Outport');
 % Opening the test Harness model
 sltest.harness.open(modelName,'Sample_Model_Harness');
+sim('Sample_Model_Harness');
+simOut = sim('Sample_Model_Harness', 'ReturnWorkspaceOutputs', 'on');
+if ~isempty(simOut)
+    disp('Model has been simulated');
+else
+    disp('Model has not been simulated');
+end
 %--------------------------------------------------------------------------
 % test Manager
-
-%-------------------------------------------------------------------------
-%----------------------END OF THE SCRIPT----------------------------------
+%-------------------------------------
