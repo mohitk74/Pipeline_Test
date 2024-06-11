@@ -1,6 +1,6 @@
 clc;clear;close all;
 % reading excel file
-disp("The First column of the Excel file Must be in")
+disp("The First column of the Excel file Must be in");
 data=readtable('Inputs.xlsx');
 % Convert numeric time vector to duration
 time = seconds(data.Time);
