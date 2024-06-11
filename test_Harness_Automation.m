@@ -43,4 +43,14 @@ sc = getSignalCriteria(baseline);
 sc(1).AbsTol = 9;
 % Opening the test Manager & Running the test cases
 sltest.testmanager.view;
-sltest.testmanager.run();
+result = sltest.testmanager.run();
+
+exampleFile = tf;
+sltest.testmanager.load(exampleFile);
+%--------------------------------------------------------------------------
+% Executing the test manager
+%-------------------------------------------------------------------------
+% Report Generation
+sltest.testmanager.report(result,'test_repot.pdf',...
+    'IncludeTestResults',0,'IncludeComparisonSignalPlots',true,...
+    'IncludeSimulationSignalPlots',true,'NumPlotRowsPerPage',3);
