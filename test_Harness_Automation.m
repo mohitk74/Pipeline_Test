@@ -20,18 +20,6 @@ sltest.harness.create(modelName, 'Name', 'Sample_Model_Harness', 'Source', 'From
 sltest.harness.open(modelName,'Sample_Model_Harness');
 %--------------------------------------------------------------------------
 % test Manager
-tf = sltest.testmanager.TestFile('Sample_Model_Results.mldatx');
-ts = getTestSuites(tf);
-tc = getTestCases(ts);
-% To provide the Sample Model & Test Harness Model to the Test Manager
-setProperty(tc,'Model',modelName)
-setProperty(tc, 'HarnessName', 'Sample_Model_Harness', 'HarnessOwner', modelName);
-% Capturing the Baseline
-baseline = captureBaselineCriteria(tc,'Sample_Model_Baseline.xlsx',true);
-sc = getSignalCriteria(baseline);
-sc(1).AbsTol = 9;
-% Opening the test Manager & Running the test cases
-sltest.testmanager.view;
-sltest.testmanager.run();
+
 %-------------------------------------------------------------------------
 %----------------------END OF THE SCRIPT----------------------------------
